@@ -4,7 +4,7 @@ import envConfig from "./config.js";
 
 function App() {
   const [query, setQuery] = useState("");
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState<{ query: string; response: string }[]>([]);
   const [loading, setLoading] = useState(false);
 
   const handleQueryChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -38,13 +38,12 @@ function App() {
 
       const data = await result.json();
       console.log(data);
-      const generatedText =
-        data.candidates?.[0]?.content?.parts?.[0]?.text || "No response generated.";
+      const generatedText = data.candidates?.[0]?.content?.parts?.[0]?.text || "No response generated.";
 
       const pointWiseResponse = generatedText
         .split("\n")
-        .filter((line) => line.trim()) 
-        .map((line, index) => `${index + 1}. ${line.trim()}`)
+        .filter((line: string) => line.trim()) 
+        .map((line: string, index: number) => `${index + 1}. ${line.trim()}`)
         .join("\n");
 
       setMessages((prev) => [
