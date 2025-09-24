@@ -9,7 +9,7 @@ body {
 }
 
 .app-container {
-  width: 600px;
+  width: 75vw;
   background: white;
   padding: 20px;
   border-radius: 8px;
@@ -17,15 +17,38 @@ body {
   display: flex;
   flex-direction: column;
 }
+.history-container {
+  width: 15vw;
+  background: #e9ecef;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-right: 20px;
+}
+
+.main-container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
 
 h1 {
   text-align: center;
   color: #333;
   margin-bottom: 20px;
+  font-size: 30px;
+  font-weight: bold;
 }
 
 .query-container {
+  position: fixed;
+  bottom: 20px;
+  width: 70vw;
   margin-bottom: 20px;
+  margin-top: 10px;
+  margin-right: 20px;
 }
 
 .query-input {
@@ -58,7 +81,14 @@ h1 {
   cursor: pointer;
 }
 
-.submit-button {
+.save-chat-button{
+  padding: 10px 15px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+}
+
+.submit-button,.save-chat-button {
   background-color: #007bff;
   color: white;
 }
@@ -78,7 +108,7 @@ h1 {
 }
 
 .messages-container {
-  max-height: 400px;
+  height: 450px;
   overflow-y: auto;
   background: #f9f9f9;
   padding: 10px;
@@ -92,6 +122,7 @@ h1 {
   background: #ffffff;
   border: 1px solid #ddd;
   border-radius: 4px;
+  width: fit-content;
 }
 
 .message-box strong {
@@ -100,4 +131,164 @@ h1 {
 
 .message-box:nth-child(odd) {
   background: #f1f8ff;
+}
+
+.clearHistoryStyle {
+  background-color: #c82333;
+  color: #ddd;
+  width: fit-content;
+  border-radius: 12px;
+  padding: 4px 10px;
+  margin-top: 10px;
+  cursor: pointer
+}
+
+/* Tablet (768px and below) */
+@media screen and (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+    padding: 10px;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .history-container {
+    width: 100%;
+    margin-right: 0;
+    height: 30vh;
+    overflow-y: auto;
+  }
+
+  .app-container {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .query-container {
+    position: relative;
+    width: 100%;
+    margin: 20px 0 0 0;
+    bottom: auto;
+  }
+
+  .messages-container {
+    height: 300px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .button-container {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .submit-button,
+  .clear-button,
+  .save-chat-button {
+    flex: 1;
+    min-width: 120px;
+  }
+}
+
+/* Mobile (480px and below) */
+@media screen and (max-width: 480px) {
+  body {
+    align-items: flex-start;
+  }
+
+  .main-container {
+    padding: 5px;
+    height: 100vh;
+  }
+
+  .history-container {
+    padding: 10px;
+    height: 30vh;
+  }
+
+  .app-container {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .query-input {
+    height: 50px;
+    font-size: 12px;
+  }
+
+  .messages-container {
+    height: 250px;
+    padding: 8px;
+  }
+
+  .message-box {
+    padding: 8px;
+    font-size: 13px;
+  }
+
+  .submit-button,
+  .clear-button,
+  .save-chat-button {
+    padding: 8px 12px;
+    font-size: 12px;
+    min-width: 100px;
+  }
+
+  .button-container {
+    flex-direction: column;
+  }
+
+  .button-container input {
+    margin: 5px 0;
+  }
+}
+
+/* Small Mobile (320px and below) */
+@media screen and (max-width: 320px) {
+  .main-container {
+    padding: 2px;
+    height: 100vh;
+  }
+
+  .history-container {
+    padding: 8px;
+    height: 30vh;
+  }
+
+  .app-container {
+    padding: 8px;
+  }
+
+  h1 {
+    font-size: 18px;
+  }
+
+  .query-input {
+    height: 45px;
+    padding: 8px;
+    font-size: 11px;
+  }
+
+  .messages-container {
+    height: 200px;
+    padding: 5px;
+  }
+
+  .message-box {
+    padding: 6px;
+    font-size: 12px;
+  }
+
+  .submit-button,
+  .clear-button,
+  .save-chat-button {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
 }
